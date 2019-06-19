@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="card card-login mx-auto mt-5">
+    <div class="card-header text-center">SEVS Vida Saudavel</div>
+    <div class="card-body">
+      <form [formGroup]="formLogin">
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required
+              autofocus="autofocus" name="usuema" formControlName="usuema">
+            <label for="inputEmail">Email</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-label-group">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required
+            name="ususen" formControlName="ususen">
+            <label for="inputPassword">Senha</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="checkbox">
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block" [disabled]="!formLogin.valid" (click)="autenticar()">Login</button>
+      </form>
+      <!-- <div class="text-center">
+        <a class="d-block small mt-3" style="cursor: pointer;">Registra-se</a>
+      </div> -->
+    </div>
+  </div>
+</div>

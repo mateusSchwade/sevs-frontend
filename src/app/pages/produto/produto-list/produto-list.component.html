@@ -1,0 +1,42 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a [routerLink]="['']">Home</a>
+  </li>
+  <li class="breadcrumb-item active">Produtos</li>
+</ol>
+<button class="btn btn-primary btn-block btn-sm" [routerLink]="['cadastrar']"><i class="fas fa-plus"></i>&nbsp;&nbsp;
+  Novo Produto</button>
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Preço</th>
+      <th>Editar</th>
+      <th>Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produto of produtosList">
+      <th>{{produto.pronom}}</th>
+      <th>R$ {{formataValor(produto.propre)}}</th>
+      <th>{{produto.protip === 'C' ? 'Chá' : 'Shake'}}</th>
+      <th><button class="btn btn-sm btn-warning" (click)="editar(produto)"><i class="fas fa-pencil-alt"></i></button>
+      </th>
+      <th><button class="btn btn-sm btn-danger" (click)="excluir(produto, content)"><i
+            class="fas fa-times"></i></button></th>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-info btn-block btn-sm" (click)="gerarRelatorio()"><i class="fas fa-plus"></i>&nbsp;&nbsp;
+  Gerar Relatorio</button>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-body">
+    <p>Desejas Excluir este Produto: "{{produto.pronom}}" ?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="d()">Não</button>
+    <button type="button" class="btn btn-success" (click)="c()">Sim</button>
+  </div>
+</ng-template>

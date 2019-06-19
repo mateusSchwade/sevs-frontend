@@ -1,0 +1,7 @@
+.sidebar.navbar-nav {
+    transition: width 0.5s !important;
+}
+
+.sidebar.navbar-nav.toggled {
+    transition: width 0.5s !important;
+}

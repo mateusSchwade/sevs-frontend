@@ -1,0 +1,61 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a [routerLink]="['']">Home</a>
+  </li>
+  <li class="breadcrumb-item active">
+    <a [routerLink]="['/pedidos']">Lista de Pedidos</a>
+  </li>
+  <li class="breadcrumb-item active">Cadastro de Pedidos</li>
+</ol>
+<div class="text-center">
+  <h5>Pedido</h5>
+  <hr>
+</div>
+
+<form [formGroup]="formPedido">
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="pcha">Primeiro chá</label>
+          <select type="text" id="pcha" name="pcha" formControlName="pcha" class="form-control"
+            placeholder="Primeiro chá" (change)="calcula()" required>
+            <option *ngFor="let cha of chaList" [ngValue]="cha">{{cha.pronom}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="scha">Segundo chá</label>
+          <select type="text" id="scha" name="scha" formControlName="scha" class="form-control"
+            placeholder="Primeiro chá" (change)="calcula()" required>
+            <option *ngFor="let cha of chaList" [ngValue]="cha">{{cha.pronom}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="pshake">Primeiro Sabor</label>
+          <select type="text" id="pshake" name="pshake" formControlName="pshake" class="form-control"
+            placeholder="Primeiro Sabor" (change)="calcula()" required>
+            <option *ngFor="let shake of shakeList" [ngValue]="shake">{{shake.pronom}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="sshake">Segundo Sabor</label>
+          <select type="text" id="sshake" name="sshake" formControlName="sshake" class="form-control"
+            placeholder="Segundo Sabor" (change)="calcula()" required>
+            <option *ngFor="let shake of shakeList" [ngValue]="shake">{{shake.pronom}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="btn-group float-right" role="group" aria-label="Basic example">
+      Valor do Pedido: R$ {{formataValor(formPedido.value.preco ? formPedido.value.preco : 0)}}&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn btn-danger btn-sm" (click)="cancelar()">Cancelar</button>
+      <button type="button" class="btn btn-success btn-sm" [disabled]="!formPedido.valid" (click)="salvar()">Salvar</button>
+    </div>
+  </div>
+</form>

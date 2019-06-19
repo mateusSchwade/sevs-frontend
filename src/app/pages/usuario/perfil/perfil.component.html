@@ -1,0 +1,56 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a [routerLink]="['']">Home</a>
+  </li>
+  <li class="breadcrumb-item active">Perfil</li>
+</ol>
+<div class="text-center">
+  <h5>Usuario</h5>
+  <hr>
+</div>
+
+<form [formGroup]="formUsuario">
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="usunom">Nome</label>
+          <input type="text" id="usunom" class="form-control" placeholder="Nome usuario" required autofocus="autofocus"
+            name="usunom" formControlName="usunom">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="usuema">Email</label>
+          <input type="text" id="usuema" class="form-control" placeholder="Email usuario" required autofocus="autofocus"
+            name="usuema" formControlName="usuema">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="usucpf">CPF</label>
+          <input type="text" id="usucpf" class="form-control" placeholder="CPF usuario" required autofocus="autofocus"
+            name="usucpf" formControlName="usucpf" mask="000.000.000-00">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="ususen">Senha</label>
+          <input type="password" id="ususen" class="form-control" placeholder="Senha" required name="ususen"
+            formControlName="ususen">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="senha">Confirmar Senha</label>
+          <input type="password" id="senha" class="form-control" placeholder="Senha" required name="senha"
+            formControlName="senha">
+        </div>
+      </div>
+    </div>
+    <div class="btn-group float-right" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-danger btn-sm" (click)="cancelar()">Cancelar</button>
+      <button type="button" class="btn btn-success btn-sm" (click)="salvar()">Salvar</button>
+    </div>
+  </div>
+</form>

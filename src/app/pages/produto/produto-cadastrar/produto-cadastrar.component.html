@@ -1,0 +1,48 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a [routerLink]="['']">Home</a>
+  </li>
+  <li class="breadcrumb-item active">
+    <a [routerLink]="['/produto']">Lista de Produtoss</a>
+  </li>
+  <li class="breadcrumb-item active">Cadastro de Produtoss</li>
+</ol>
+<div class="text-center">
+  <h5>Produtos</h5>
+  <hr>
+</div>
+
+<form [formGroup]="formProduto">
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="pronom">Nome</label>
+          <input type="text" id="pronom" class="form-control" placeholder="Nome produto" required autofocus="autofocus"
+            name="pronom" formControlName="pronom">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="protip">Tipo</label>
+          <select type="text" id="protip" name="protip" formControlName="protip" class="form-control"
+            placeholder="Tipo de produto" required>
+            <option value="C">Chá</option>
+            <option value="S">Shake</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="propre">Preço</label>
+          <input type="text" id="propre" class="form-control" placeholder="Preço produto" required autofocus="autofocus"
+            name="propre" formControlName="propre" currencyMask  [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+        </div>
+      </div>
+    </div>
+    <div class="btn-group float-right" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-danger btn-sm" (click)="cancelar()">Cancelar</button>
+      <button type="button" class="btn btn-success btn-sm" [disabled]="!formProduto.valid" (click)="salvar()">Salvar</button>
+    </div>
+  </div>
+</form>
